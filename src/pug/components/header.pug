@@ -1,0 +1,17 @@
+block config-block
+
+- image_directory = `${root_directory}files/img/common/`;
+
+-
+	function getActivePageClass(target) {
+		return page_category == target ? 'active' : '';
+	}
+
+header#header
+	.wrap
+		nav#global-navi
+			ul.anchor-list
+				li
+					a(class=getActivePageClass('index') href=`${root_directory}`) Home
+				li
+					a(class=getActivePageClass('sub') href=`${root_directory}sub/`) Sub

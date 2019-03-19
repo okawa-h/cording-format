@@ -1,0 +1,19 @@
+extends /layout/base
+
+append config-block
+    -
+        page_name        = 'Top';
+        page_category    = 'index';
+        page_description = 'top description';
+        page_keywords    = ['top'];
+
+append stylesheet-block
+    link(href="./files/css/style.css" rel="stylesheet")
+
+append javascript-block
+    script(src=`${root_directory}files/js/script.js`)
+
+block content-block
+    .wrap
+        h1 Top
+        p text

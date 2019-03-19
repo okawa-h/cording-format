@@ -1,0 +1,21 @@
+extends /layout/base
+
+append config-block
+    -
+        root_directory   = '../';
+        page_name        = 'Sub';
+        page_category    = 'sub';
+        page_description = 'sub description';
+        page_keywords    = ['sub'];
+        page_directory   = 'sub/';
+
+append stylesheet-block
+    link(href="./files/css/style.css" rel="stylesheet")
+
+append javascript-block
+    script(src=`${root_directory}files/js/script.js`)
+
+block content-block
+    .wrap
+        h1 sub
+        p text
