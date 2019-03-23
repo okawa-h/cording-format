@@ -5,30 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="format-detection" content="telephone=no">
-    <meta name="page_name" content="sub_page_name">
-    <meta name="description" content="sub_page_description">
-    <meta name="keywords" content="test,test2,sub,sub2">
+    <meta name="page_name" content="Sub">
+    <meta name="description" content="sub description">
+    <meta name="keywords" content="test,sub">
     <link rel="canonical" href="https://example.jp/sub/">
-    <title>sub_page_name | Helloworld</title>
+    <title>Sub | Helloworld</title>
+    <link href="./files/css/style.css" rel="stylesheet">
     <script src="../files/js/script.js"></script>
   </head>
-  <body data-category="sub_page_category">
+  <body data-category="sub">
     <div id="all">
       <header id="header">
         <div class="wrap">
           <nav id="global-navi">
             <ul class="anchor-list">
-              <li><a>HOME</a></li>
-              <li><a>ABOUT</a></li>
+              <li><a href="../">Home</a></li>
+              <li><a class="active" href="../sub/">Sub</a></li>
             </ul>
           </nav>
         </div>
       </header>
       <section id="main">
-        <p>subtext</p>
+        <div class="wrap">
+          <h1>sub</h1>
+          <p>text</p>
+        </div>
       </section>
       <footer id="footer">
-        <div class="wrap"><small>&copy;</small></div>
+        <div class="wrap"><small class="copylight">&copy; Company CO.,LTD.</small></div>
       </footer>
     </div>
   </body>

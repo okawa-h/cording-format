@@ -123,11 +123,10 @@ table {
   border-spacing: 0;
 }
 body {
-  overflow-x: hidden;
-  overflow-y: scroll;
   color: #000;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
   font-size: 14px;
+  -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   line-height: 1.6;
   -webkit-text-size-adjust: 100%;
@@ -158,6 +157,22 @@ button {
 a {
   color: #000;
   text-decoration: none;
+}
+.wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+#global-navi .anchor-list {
+  display: flex;
+}
+#global-navi .anchor-list li a.active {
+  color: #f00;
+}
+#footer {
+  text-align: center;
+}
+#footer .copylight {
+  font-size: 12px;
 }
 /* =======================================================================
 	Contents

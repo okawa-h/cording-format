@@ -1,0 +1,60 @@
+/*-------------------------------------------------------------------------
+	Common
+/*-----------------------------------------------------------------------*/
+max-mediaquery($width) {
+	@media (max-width: $width) {
+		{block}
+	}
+}
+
+/*-------------------------------------------------------------------------
+	Box
+/*-----------------------------------------------------------------------*/
+hover-opacity($value=.8,$second=.2s,$easing=ease-in-out) {
+	transition: opacity $second $easing;
+	@media screen and (min-width:$MW) {
+		&:hover {
+			opacity: $value;
+		}
+	}
+}
+
+after-clearfix() {
+	&:after {
+		display: block;
+		content: "";
+		visibility: hidden;
+		clear: both;
+	}
+}
+
+last-clear-margin-bottom() {
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+/*-------------------------------------------------------------------------
+	Text
+/*-----------------------------------------------------------------------*/
+text-justify() {
+	text-align: justify;
+	text-justify: inter-ideograph;
+}
+
+/*-------------------------------------------------------------------------
+	Background
+/*-----------------------------------------------------------------------*/
+background-stripe($colorA,$colorB=transparent) {
+	background-image: linear-gradient(
+		-45deg,
+		$colorB,
+		$colorB 25%,
+		$colorA 26%,
+		$colorA 50%,
+		$colorB 51%,
+		$colorB 75%,
+		$colorA 76%,
+		$colorA 100%
+	);
+}

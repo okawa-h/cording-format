@@ -21,14 +21,14 @@ npm i jquery
 
 ## Git Comments
 - Format
-    - Add
-    - Fix
-    - Update
-    - Remove
-    - Move
-    - Change
-    - Rename
-    - Clean
+    - add
+    - fix
+    - update
+    - remove
+    - move
+    - change
+    - rename
+    - clean
 - Example
-    - `Add image`
-    - `Fix layout`
+    - `add image at top`
+    - `fix header layout `
