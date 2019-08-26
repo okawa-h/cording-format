@@ -1,37 +1,38 @@
 export default class Utils {
 
-    static log(text) {
-
-        console.log(text);
-
-    }
-
-    static loadImageList(imageList,onLoaded) {
+    static loadImageList(imageList) {
 
         let promiseList = [];
-        for (let value of imageList) {
-            promiseList.push(Utils.loadImage(value,onLoaded));
+        for (let src of imageList) {
+            promiseList.push(Utils.loadImage(src));
         }
+
         return Promise.all(promiseList);
 
     }
 
-    static loadImage(src,onLoaded) {
+    static loadImage(src) {
 
         return new Promise((resolve,reject) => {
 
             const image = new Image();
-            image.onload = () => {
-                if (onLoaded) onLoaded(image);
-                resolve(image);
-            };
-            image.onerror = () => {
-                console.log(new Error(`not found - ${src}`));
-                resolve();
-            };
+            image.onload = resolve;
+            image.onerror = reject;
             image.src = src;
 
         });
+
+    }
+
+    static wait(duration) {
+
+        return new Promise(resolve => setTimeout(resolve,duration) );
+
+    }
+
+    static zeroPadding(num,length) {
+
+        return (Array(length).join('0') + num).slice(-length);
 
     }
 

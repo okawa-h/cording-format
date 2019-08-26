@@ -7,16 +7,46 @@ max-mediaquery($width) {
 	}
 }
 
+large-layout() {
+    @media (min-width: $LW) {
+        {block}
+    }
+}
+
+middle-layout() {
+    @media (min-width: $MW) and (max-width: ($LW - 1)) {
+        {block}
+    }
+}
+
+small-layout() {
+    @media (max-width: ($MW - 1)) {
+        {block}
+    }
+}
+
+desktop-layout() {
+    @media (min-width: $MW) {
+        {block}
+    }
+}
+
 /*-------------------------------------------------------------------------
 	Box
 /*-----------------------------------------------------------------------*/
+flex-center() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 hover-opacity($value=.8,$second=.2s,$easing=ease-in-out) {
 	transition: opacity $second $easing;
-	@media screen and (min-width:$MW) {
-		&:hover {
-			opacity: $value;
-		}
-	}
+    +desktop-layout() {
+        &:hover {
+            opacity: $value;
+        }
+    }
 }
 
 after-clearfix() {
