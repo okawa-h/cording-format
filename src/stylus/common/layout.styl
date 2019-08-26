@@ -8,20 +8,34 @@
 .wrap {
 	max-width: $LW;
 	margin: 0 auto;
+	+small-layout() {
+		margin: 0 $SP_CONTENT_PADDING;
+	}
+}
+
+.only-pc {
+    +small-layout() {
+        display: none !important;
+    }
+}
+
+.only-sp {
+    +desktop-layout() {
+        display: none !important;
+    }
 }
 
 /*-------------------------------------------------------------------------
 	Header
 /*-----------------------------------------------------------------------*/
 #header {
-
 }
 
 /*-------------------------------------------------------------------------
-	Global navi
+	Globalnavi
 /*-----------------------------------------------------------------------*/
-#global-navi {
-	.anchor-list {
+.globalnavi {
+	&-pages {
 		display: flex;
 		li {
 			a {
