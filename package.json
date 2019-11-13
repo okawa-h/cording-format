@@ -12,9 +12,9 @@
     "es6-promise": "^4.2.8"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "autoprefixer": "^9.6.1",
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "autoprefixer": "^9.7.1",
     "babel-loader": "^8.0.6",
     "css-loader": "^2.1.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
@@ -25,9 +25,9 @@
     "pug-loader": "^2.4.0",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
-    "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.7",
-    "webpack-dev-server": "^3.8.0"
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
   },
   "presets": [
     "@babel/preset-env"
@@ -37,5 +37,4 @@
     "ios >= 9",
     "android >= 4.4"
   ]
-
 }
