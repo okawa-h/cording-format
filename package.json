@@ -1,8 +1,16 @@
 {
-  "name": "base",
+  "name": "coding-format",
   "version": "1.0.0",
   "description": "",
-  "dependencies": {},
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "build": "webpack --mode=development",
+    "start": "webpack-dev-server --mode=development --inline"
+  },
+  "dependencies": {
+    "es6-promise": "^4.2.8"
+  },
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
@@ -21,12 +29,7 @@
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.0"
   },
-  "scripts": {
-    "build": "webpack --mode=development",
-    "start": "webpack-dev-server --mode=development --inline"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "presets": ["@babel/preset-env"]
+  "presets": [
+    "@babel/preset-env"
+  ]
 }

@@ -1,15 +1,27 @@
-import Utils from './library/Utils';
+'use strict';
+
+import 'es6-promise/auto';
+import Utils from './lib/Utils';
+import Header from './controller/Header';
 
 const init = () => {
 
-    Utils.log('init');
+  console.log('init');
 
-    const onLoaded = (image) => {
-        console.log(image);
-    };
+  Header.init();
 
-    Utils.loadImageList(['./files/img/test.png'],onLoaded).then(() => console.log('complete'));
+  Utils.wait(200).then(() => {
+    console.log('wait');
+  });
+
+  // const onLoaded = (image) => {
+  //   console.log(image);
+  // };
+
+  // Utils
+  //   .loadImageAll(['./files/img/test.png'], onLoaded)
+  //   .then(() => console.log('complete'));
 
 };
 
-document.addEventListener('DOMContentLoaded',init,false);
+document.addEventListener('DOMContentLoaded', init, false);

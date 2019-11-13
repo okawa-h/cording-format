@@ -1,11 +1,13 @@
+'use strict';
+
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
-const PATH_SRC  = './src';
+const PATH_SRC = './src';
 const PATH_DEST = 'public';
-const DEV_HOST  = '0.0.0.0';
-const DEV_PORT  = 3000;
+const DEV_HOST = '0.0.0.0';
+const DEV_PORT = 3000;
 
 const htmlList = [
     new HtmlWebpackPlugin({
@@ -21,12 +23,12 @@ const htmlList = [
 
 module.exports = {
     entry: {
-        'files/js/script.js': path.resolve(__dirname,`${PATH_SRC}/js/index.js`),
-        'files/css/style.css': path.resolve(__dirname,`${PATH_SRC}/stylus/page/style.styl`),
-        'sub/files/css/style.css': path.resolve(__dirname,`${PATH_SRC}/stylus/page/sub/style.styl`)
+        'files/js/script.js': path.resolve(__dirname, `${PATH_SRC}/js/index.js`),
+        'files/css/style.css': path.resolve(__dirname, `${PATH_SRC}/stylus/page/style.styl`),
+        'sub/files/css/style.css': path.resolve(__dirname, `${PATH_SRC}/stylus/page/sub/style.styl`)
     },
     output: {
-        path: path.resolve(__dirname,PATH_DEST),
+        path: path.resolve(__dirname, PATH_DEST),
         filename: '[name]',
     },
     module: {
@@ -45,9 +47,9 @@ module.exports = {
                 test: /\.pug$/,
                 use: [
                     {
-                        loader:'pug-loader',
+                        loader: 'pug-loader',
                         options: {
-                            root  : path.resolve(`${PATH_SRC}/pug/`),
+                            root: path.resolve(`${PATH_SRC}/pug/`),
                             pretty: true,
                         }
                     }
@@ -58,17 +60,17 @@ module.exports = {
                 use: ExtractTextPlugin.extract({
                     use: [
                         {
-                            loader:'css-loader'
+                            loader: 'css-loader'
                         },
                         {
                             loader: 'postcss-loader',
                             options: {
                                 ident: 'postcss',
-                                plugins: (loader) => [require('autoprefixer')()]
+                                plugins: (loader) => [ require('autoprefixer')() ]
                             }
                         },
                         {
-                            loader:'stylus-loader'
+                            loader: 'stylus-loader'
                         }
                     ]
                 })
