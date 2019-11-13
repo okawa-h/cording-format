@@ -1,34 +1,31 @@
-
 /*-------------------------------------------------------------------------
 	Common
 /*-----------------------------------------------------------------------*/
-#all {
-}
-
 .wrap {
-	max-width: $LW;
-	margin: 0 auto;
-	+small-layout() {
-		margin: 0 $SP_CONTENT_PADDING;
-	}
+  max-width: $LW;
+  margin: 0 auto;
+  +small-layout() {
+    margin: 0 $SP_CONTENT_PADDING;
+  }
 }
 
 .only-pc {
-    +small-layout() {
-        display: none !important;
-    }
+  +small-layout() {
+    display: none !important;
+  }
 }
 
 .only-sp {
-    +desktop-layout() {
-        display: none !important;
-    }
+  +desktop-layout() {
+    display: none !important;
+  }
 }
 
 /*-------------------------------------------------------------------------
-	Header
+  Header
 /*-----------------------------------------------------------------------*/
 #header {
+  display: block;
 }
 
 /*-------------------------------------------------------------------------
@@ -52,7 +49,7 @@
 /*-----------------------------------------------------------------------*/
 #footer {
 	text-align: center;
-	.copylight {
+	.copyright {
 		font-size: 12px;
 	}
 }

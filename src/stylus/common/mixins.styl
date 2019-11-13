@@ -1,5 +1,5 @@
 /*-------------------------------------------------------------------------
-	Common
+	Utils
 /*-----------------------------------------------------------------------*/
 max-mediaquery($width) {
 	@media (max-width: $width) {
@@ -8,45 +8,36 @@ max-mediaquery($width) {
 }
 
 large-layout() {
-    @media (min-width: $LW) {
-        {block}
-    }
+  @media (min-width: $LW) {
+    {block}
+  }
 }
 
 middle-layout() {
-    @media (min-width: $MW) and (max-width: ($LW - 1)) {
-        {block}
-    }
+  @media (min-width: $MW) and (max-width: ($LW - 1)) {
+    {block}
+  }
 }
 
 small-layout() {
-    @media (max-width: ($MW - 1)) {
-        {block}
-    }
+  @media (max-width: ($MW - 1)) {
+    {block}
+  }
 }
 
 desktop-layout() {
-    @media (min-width: $MW) {
-        {block}
-    }
+  @media (min-width: $MW) {
+    {block}
+  }
 }
 
 /*-------------------------------------------------------------------------
-	Box
+	Layout
 /*-----------------------------------------------------------------------*/
 flex-center() {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-hover-opacity($value=.8,$second=.2s,$easing=ease-in-out) {
-	transition: opacity $second $easing;
-    +desktop-layout() {
-        &:hover {
-            opacity: $value;
-        }
-    }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 after-clearfix() {
@@ -87,4 +78,16 @@ background-stripe($colorA,$colorB=transparent) {
 		$colorA 76%,
 		$colorA 100%
 	);
+}
+
+/*-------------------------------------------------------------------------
+	Animation
+/*-----------------------------------------------------------------------*/
+hover-opacity($value=.8, $second=.2s, $easing=ease-in-out) {
+	transition: opacity $second $easing;
+  +desktop-layout() {
+    &:hover {
+      opacity: $value;
+    }
+  }
 }
