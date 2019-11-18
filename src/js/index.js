@@ -1,8 +1,8 @@
 'use strict';
 
 import 'es6-promise/auto';
-import Utils from './lib/Utils';
-import Header from './controller/Header';
+import Utils from '@/lib/Utils';
+import Header from '@/controller/Header';
 
 const init = () => {
 
