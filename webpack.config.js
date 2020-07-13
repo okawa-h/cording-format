@@ -1,7 +1,8 @@
 'use strict';
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPluginCombiner = require('html-webpack-plugin-combiner');
+const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
 const path = require('path');
 
 const PATH_SRC = './src';
@@ -13,13 +14,12 @@ const htmlList = new HtmlWebpackPluginCombiner('src/pug/page/').htmlList;
 
 module.exports = {
   entry: {
-    'files/js/script.js': path.resolve(__dirname, `${PATH_SRC}/js/index.js`),
-    'files/css/style.css': path.resolve(__dirname, `${PATH_SRC}/stylus/page/style.styl`),
-    'sub/files/css/style.css': path.resolve(__dirname, `${PATH_SRC}/stylus/page/sub/style.styl`)
+    'files/js/script': path.resolve(__dirname, `${PATH_SRC}/js/index.js`),
+    '/files/css/style.css': path.resolve(__dirname, `${PATH_SRC}/stylus/page/style.styl`),
+    '/sub/files/css/style.css': path.resolve(__dirname, `${PATH_SRC}/stylus/page/sub/style.styl`)
   },
   output: {
-    path: path.resolve(__dirname, PATH_DEST),
-    filename: '[name]',
+    path: path.resolve(__dirname, PATH_DEST)
   },
   module: {
     rules: [
@@ -47,23 +47,25 @@ module.exports = {
       },
       {
         test: /\.styl(us)?$/,
-        use: ExtractTextPlugin.extract({
-          use: [
-            {
-              loader: 'css-loader'
-            },
-            {
-              loader: 'postcss-loader',
-              options: {
-                ident: 'postcss',
-                plugins: (loader) => [ require('autoprefixer')() ]
-              }
-            },
-            {
-              loader: 'stylus-loader'
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              url: false,
             }
-          ]
-        })
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: (loader) => [ require('autoprefixer')() ]
+            }
+          },
+          {
+            loader: 'stylus-loader'
+          }
+        ]
       }
     ]
   },
@@ -81,6 +83,9 @@ module.exports = {
   },
   plugins: [
     ...htmlList,
-    new ExtractTextPlugin('[name]')
+    new FixStyleOnlyEntriesPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name]'
+    })
   ]
 };
